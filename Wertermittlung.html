@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verkehrswertgutachten: Unter den Baumgärten 9</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Grundlegende Typografie */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: #334155; 
+            background-color: #f8fafc; 
+            line-height: 1.8; /* Mehr Zeilenabstand für Lesbarkeit */
+        }
+        
+        /* Überschriften mit Serifenschrift für Dokumenten-Charakter */
+        h1, h2, h3, h4 { 
+            font-family: 'Merriweather', serif; 
+            color: #0f172a; 
+        }
+
+        /* Spezifische Abstände für den Lesefluss */
+        .content-block h1 { 
+            font-size: 2.5rem; 
+            line-height: 1.2;
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .content-block h2 { 
+            font-size: 1.75rem; 
+            font-weight: 700; 
+            margin-top: 4rem; /* Viel Platz vor neuen Kapiteln */
+            margin-bottom: 1.5rem; 
+            color: #1e293b;
+            position: relative;
+        }
+        
+        /* Dekorativer Strich neben H2 */
+        .content-block h2::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.25em;
+            bottom: 0.25em;
+            width: 4px;
+            background-color: #059669; /* Smaragdgrün */
+            border-radius: 2px;
+        }
+
+        .content-block h3 { 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            margin-top: 2.5rem; 
+            margin-bottom: 1rem; 
+            color: #475569; 
+        }
+
+        .content-block p { 
+            margin-bottom: 1.5rem; /* Klarer Absatzabstand */
+            text-align: justify;
+        }
+
+        /* Listen Styling */
+        .content-block ul, .content-block ol { 
+            margin-bottom: 1.5rem; 
+            padding-left: 1.5rem; 
+            background-color: #f8fafc; /* Leichter Hintergrund für Listen */
+            padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #cbd5e1;
+        }
+        
+        .content-block li { 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .content-block ul { list-style-type: disc; }
+        .content-block ol { list-style-type: decimal; }
+
+        /* Tabellen Styling */
+        .styled-table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0; 
+            margin: 2rem 0; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .styled-table th { 
+            background-color: #1e293b; 
+            color: white; 
+            text-align: left; 
+            padding: 1rem; 
+            font-weight: 600; 
+        }
+        .styled-table td { 
+            background-color: white;
+            padding: 1rem; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        .styled-table tr:last-child td { 
+            border-bottom: none; 
+        }
+        .styled-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        /* Hinweisbox */
+        .plausibility-box {
+            background-color: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-left: 5px solid #f97316;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            color: #9a3412;
+        }
+
+        /* Druckoptimierung */
+        @media print {
+            .sidebar { display: none; }
+            body { background: white; }
+            .content-wrapper { margin: 0; padding: 0; max-width: 100%; box-shadow: none; }
+            .content-block h2::before { display: none; } /* Strich ausblenden beim Druck */
+        }
+    </style>
+</head>
+<body class="flex flex-col lg:flex-row min-h-screen">
+
+    <!-- Sidebar Navigation (Desktop: Links fixiert, Mobile: Oben) -->
+    <nav class="sidebar bg-slate-900 text-slate-300 w-full lg:w-72 lg:h-screen lg:sticky lg:top-0 flex-shrink-0 flex flex-col shadow-xl z-50">
+        <div class="p-6 bg-slate-800 border-b border-slate-700">
+            <h1 class="text-white font-serif font-bold text-lg leading-tight">Gutachten<br>Wutöschingen</h1>
+            <p class="text-xs text-slate-400 mt-2">15. Dezember 2025</p>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+            <ul class="space-y-1 text-sm font-medium">
+                <li><a href="#intro" class="block py-2 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">1. Einleitung</a></li>
+                <li><a href="#macro" class="block py-2 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">2. Makrostandort</a></li>
+                <li><a href="#micro" class="block py-2 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">3. Mikrostandort</a></li>
+                <li><a href="#object" class="block py-2 px-3 rounded hover:bg-slate-800 hover:text-white transition-colors">4. Objektdaten</a></li>
+                <li class="pl-3 text-xs uppercase tracking-widest text-slate-500 mt-4 mb-2 font-bold">Wertermittlung</li>
+                <li><a href="#land" class="block py-2 px-3 rounded hover:bg-emerald-900 hover:text-emerald-400 transition-colors">5. Bodenwert</a></li>
+                <li><a href="#building" class="block py-2 px-3 rounded hover:bg-emerald-900 hover:text-emerald-400 transition-colors">6. Sachwert</a></li>
+                <li><a href="#market" class="block py-2 px-3 rounded hover:bg-emerald-900 hover:text-emerald-400 transition-colors">7. Vergleich & Markt</a></li>
+                <li><a href="#energy" class="block py-2 px-3 rounded hover:bg-emerald-900 hover:text-emerald-400 transition-colors">8. Energie (USP)</a></li>
+                <li><a href="#conclusion" class="block py-3 px-3 mt-4 rounded bg-emerald-600 text-white font-bold text-center shadow-lg hover:bg-emerald-500 transition-colors">9. Ergebnis & Preis</a></li>
+            </ul>
+        </div>
+        
+        <div class="p-4 text-xs text-slate-500 border-t border-slate-800 text-center">
+            &copy; Expertensystem<br>Immobilienbewertung
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 lg:p-8 xl:p-12">
+        <div class="content-wrapper max-w-4xl mx-auto bg-white p-8 md:p-16 rounded-xl shadow-sm border border-slate-100 content-block">
+            
+            <!-- Titelblatt -->
+            <div class="text-center mb-16 pb-12 border-b border-slate-100">
+                <span class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-emerald-600 uppercase bg-emerald-50 rounded-full border border-emerald-100">
+                    Verkehrswertgutachten
+                </span>
+                <h1 class="text-4xl md:text-5xl !border-none !mb-6 !pb-0 text-slate-900">Einfamilienhaus in Wutöschingen</h1>
+                <p class="text-xl text-slate-500 italic font-serif">Umfassende Standort- und Wertanalyse</p>
+                
+                <div class="mt-8 inline-flex flex-col md:flex-row gap-4 text-left bg-slate-50 p-6 rounded-lg border border-slate-100">
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Objektadresse</span>
+                        <span class="block font-semibold text-slate-800">Unter den Baumgärten 9<br>79793 Wutöschingen</span>
+                    </div>
+                    <div class="hidden md:block w-px bg-slate-200 mx-4"></div>
+                    <div>
+                        <span class="block text-xs font-bold text-slate-400 uppercase">Stichtag</span>
+                        <span class="block font-semibold text-slate-800">15. Dezember 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. Einleitung -->
+            <section id="intro">
+                <h2>1. Einleitung und Grundlegung der Bewertung</h2>
+
+                <h3>1.1 Auftrag und Zweck der Wertermittlung</h3>
+                <p>Gegenstand der vorliegenden Ausarbeitung ist die detaillierte Ermittlung des Verkehrswertes (Marktwertes) für das bebaut Grundstück „Unter den Baumgärten 9“ in 79793 Wutöschingen. Bei dem zu bewertenden Objekt handelt es sich um ein freistehendes Einfamilienhaus aus dem Baujahr 2002, das sich durch eine überdurchschnittliche energetische Ausstattung (Energieeffizienzklasse A+), eine Photovoltaikanlage mit Batteriespeicher sowie hochwertige Außenanlagen auszeichnet.</p>
+                <p>Die Bewertung erfolgt vor dem Hintergrund eines komplexen immobilienwirtschaftlichen Umfelds im vierten Quartal 2025. Der Immobilienmarkt in Baden-Württemberg, und spezifisch im Landkreis Waldshut, befindet sich in einer Phase der Konsolidierung nach den Zinsanstiegen der Vorjahre. Während der Markt für unsanierte Bestandsimmobilien weiterhin Preisabschläge verzeichnet, hat sich eine deutliche Preisschere zu Gunsten energieeffizienter Objekte gebildet. Die Aufgabenstellung erfordert daher nicht nur eine rein rechnerische Ermittlung anhand normierter Verfahren, sondern eine tiefgreifende Analyse der mikroökonomischen Faktoren, die den Wert dieses spezifischen "A+"-Objekts in einer Grenzregion zur Schweiz determinieren.</p>
+                <p>Ziel dieses Reports ist es, durch die Triangulation von Sachwertverfahren, Vergleichswertfaktoren und qualitativen Marktanalysen einen belastbaren Verkaufspreis zu definieren, der die Substanzwerte ebenso berücksichtigt wie die aktuelle Zahlungsbereitschaft der Zielgruppe.</p>
+
+                <h3>1.2 Methodische Grundlagen und Verfahrenswahl</h3>
+                <p>Die Wertermittlung basiert auf den gesetzlichen Vorgaben der Immobilienwertermittlungsverordnung (ImmoWertV) in der zum Stichtag gültigen Fassung. Angesichts der Objektart – ein klassisches, eigengenutztes Einfamilienhaus – kommen primär zwei Verfahren zur Anwendung, deren Ergebnisse anschließend gewürdigt und verschnitten werden.</p>
+                <p>Das <strong>Sachwertverfahren</strong> steht im Zentrum der Bewertung. Es ist das marktübliche Verfahren für Ein- und Zweifamilienhäuser, die nicht primär zur Renditeerzielung (Mieteinnahmen), sondern zur Selbstnutzung erworben werden. Hierbei wird der Wert der baulichen Anlagen (Herstellungskosten abzüglich Alterswertminderung) getrennt vom Bodenwert ermittelt. Die Summe aus Bodenwert und Gebäudesachwert ergibt den vorläufigen Sachwert, der durch einen Marktanpassungsfaktor an die tatsächliche Marktlage angeglichen wird. Dieses Verfahren ist besonders geeignet, die hochwertige Bausubstanz (HLZ-Mauerwerk) und die umfangreichen Außenanlagen abzubilden.</p>
+                <p>Flankierend wird das <strong>Vergleichswertverfahren</strong> herangezogen. Hierbei wird der Wert des Grundstücks aus tatsächlich realisierten Kaufpreisen solcher Grundstücke abgeleitet, die hinsichtlich ihrer wertbeeinflussenden Merkmale mit dem zu bewertenden Grundstück hinreichend übereinstimmen. Da jedes Einfamilienhaus ein Unikat ist, dient dieses Verfahren in diesem Kontext primär der Plausibilisierung und der Einordnung in das aktuelle Preisgefüge von Wutöschingen, insbesondere unter Berücksichtigung der energetischen Premium-Lage des Bewertungsobjekts.</p>
+
+                <h3>1.3 Datengrundlage und Informationsquellen</h3>
+                <p>Die Bewertung stützt sich auf die vom Eigentümer zur Verfügung gestellten detaillierten Objektdaten (Flächenberechnungen nach II. Berechnungsverordnung, Baubeschreibung, energetische Daten) sowie auf umfangreiche Recherchen zu Bodenrichtwerten, Marktdaten und statistischen Indizes.</p>
+                <p>Besondere Berücksichtigung finden:</p>
+                <ul>
+                    <li>Die aktuellen Bodenrichtwerte des Gutachterausschusses Wutöschingen für das Jahr 2025.</li>
+                    <li>Die Baupreisindizes des Statistischen Bundesamtes zur Indexierung der Herstellungskosten auf das Preisniveau Ende 2025.</li>
+                    <li>Regionale Immobilienmarktberichte für den Landkreis Waldshut und die Gemeinde Wutöschingen, um die lokalen Marktanpassungsfaktoren und Liegenschaftszinssätze zu verifizieren.</li>
+                    <li>Aktuelle Studien zur Wertsteigerung durch energetische Sanierung und Photovoltaik, um den Einfluss der Energieeffizienzklasse A+ monetär zu quantifizieren.</li>
+                </ul>
+            </section>
+
+            <!-- 2. Makrostandort -->
+            <section id="macro">
+                <h2>2. Makrostandortanalyse: Der Landkreis Waldshut</h2>
+
+                <h3>2.1 Wirtschaftsstruktur und Kaufkraft</h3>
+                <p>Der Landkreis Waldshut liegt im äußersten Süden Baden-Württembergs und grenzt direkt an die Schweiz (Kantone Aargau, Zürich, Schaffhausen). Diese geographische Lage ist der dominierende Faktor für die Immobilienpreisentwicklung in der Region. Die Wirtschaftskraft des Landkreises wird maßgeblich durch die hohe Zahl an Grenzgängern gestützt, die in der Schweiz ein deutlich höheres Lohnniveau realisieren, aber ihren Lebensmittelpunkt in Deutschland haben.</p>
+                <p>Diese spezifische Konstellation führt zu einer Entkopplung der lokalen Kaufkraft von den rein innerdeutschen Lohnentwicklungen. Immobilienpreise im Landkreis Waldshut, und insbesondere in grenznahen Gemeinden wie Wutöschingen, korrelieren daher oft stärker mit der Konjunktur in der Nordschweiz als mit dem Bundesdurchschnitt Deutschlands. Die Nachfrage nach hochwertigem Wohneigentum bleibt auch in gesamtwirtschaftlich schwierigeren Zeiten stabil, da die Zielgruppe der Grenzgänger über eine überdurchschnittliche Bonität verfügt.</p>
+                <p>Zudem verfügt der Landkreis über eine solide mittelständische Struktur und Industriecluster, beispielsweise in der Aluminiumverarbeitung (Wutöschingen), Chemie und Energiewirtschaft. Dies sorgt für eine stabile Binnennachfrage nach Wohnraum, unabhängig vom Grenzgänger-Effekt.</p>
+
+                <h3>2.2 Infrastruktur und Verkehrsanbindung</h3>
+                <p>Die verkehrstechnische Erschließung ist ein wesentliches Kriterium für den Standortwert. Die Bundesstraße 314 (Hochrhein-Achse) durchzieht den südlichen Teil des Landkreises und verbindet Wutöschingen mit den Mittelzentren Waldshut-Tiengen und Singen sowie den Grenzübergängen.</p>
+                <p>Für den Pendlerverkehr ist zudem die Hochrheinbahn von Bedeutung, deren Elektrifizierung und Ausbau ein laufendes Infrastrukturprojekt darstellt, das die Attraktivität der Region weiter steigern wird. Die Nähe zum Flughafen Zürich (ca. 45-60 Minuten Fahrzeit) erhöht die Standortgunst für international tätige Arbeitnehmer zusätzlich.</p>
+
+                <h3>2.3 Der Immobilienmarkt im Landkreis Waldshut 2025</h3>
+                <p>Der Immobilienmarktbericht für den Landkreis Waldshut zeigt für das Jahr 2025 eine differenzierte Entwicklung. Während der Markt für ältere, unsanierte Bestandsimmobilien unter Druck steht und Preisrückgänge verzeichnet, sind die Preise für neuwertige oder energetisch top-sanierte Objekte stabil bis leicht steigend.</p>
+                <p>Die durchschnittlichen Angebotspreise für Häuser im Landkreis bewegen sich laut aktuellen Erhebungen um 2.688 €/m² bis 3.088 €/m². Es ist jedoch essenziell zu beachten, dass diese Durchschnittswerte oft Immobilien der Energieklassen D bis F beinhalten. Für Objekte der Klasse A+ sind signifikante Aufschläge zu beobachten, da Käufer die Planungssicherheit bezüglich zukünftiger Heizkosten und gesetzlicher Sanierungspflichten (GEG) honorieren.</p>
+                <p>Der Marktanpassungsfaktor (Sachwertfaktor) für Einfamilienhäuser im ländlichen Raum Baden-Württembergs hat sich nach den Zinsanstiegen verändert. Wo früher Faktoren von 1,2 oder höher üblich waren, liegen diese nun oft im Bereich von 0,9 bis 1,1, abhängig von der Mikro-Lage und Objektqualität. Für das Bewertungsobjekt ist aufgrund der herausragenden Eigenschaften jedoch eine Einordnung am oberen Rand dieses Spektrums zu prüfen.</p>
+            </section>
+
+            <!-- 3. Mikrostandort -->
+            <section id="micro">
+                <h2>3. Mikrostandortanalyse: Die Gemeinde Wutöschingen</h2>
+
+                <h3>3.1 Struktur und Lagequalität</h3>
+                <p>Wutöschingen, mit seinen Ortsteilen Horheim, Ofteringen, Schwerzen und Degernau, hat sich zu einer prosperierenden Industriegemeinde mit hoher Wohnqualität entwickelt. Die Gemeinde profitiert stark von der ansässigen Industrie (Aluminiumwerke Wutöschingen), die nicht nur Arbeitsplätze sichert, sondern auch für überdurchschnittliche Gewerbesteuereinnahmen sorgt, was sich in einer sehr guten kommunalen Infrastruktur niederschlägt.</p>
+                <p>Die Lage im Wutachtal, flankiert von den Ausläufern des Schwarzwaldes und dem Randen, bietet einen hohen Freizeitwert. Die Nähe zur Schweizer Grenze (wenige Kilometer) macht den Ort für Grenzgänger strategisch ideal.</p>
+
+                <h3>3.2 Wohnlage "Unter den Baumgärten"</h3>
+                <p>Die Adresse "Unter den Baumgärten 9" deutet auf ein gewachsenes, homogenes Wohngebiet hin. Straßennamen dieser Art ("Baumgärten", "Im Wiesengrund" etc.) sind typisch für Erschließungsgebiete der 1990er und frühen 2000er Jahre, was exakt mit dem Baujahr des Hauses (2002) korrespondiert.</p>
+                <p><strong>Bewertung der Wohnlage:</strong></p>
+                <ul>
+                    <li><strong>Lärmemissionen:</strong> Das Gebiet liegt vermutlich abseits der Hauptdurchgangsstraßen (B314), was eine ruhige Wohnsituation verspricht.</li>
+                    <li><strong>Umfeldbebauung:</strong> Es ist von einer aufgelockerten Bebauung mit Ein- und Zweifamilienhäusern auszugehen, was die Privatsphäre und den Sozialstatus des Quartiers sichert.</li>
+                    <li><strong>Versorgung:</strong> Schulen, Kindergärten und Einkaufsmöglichkeiten des täglichen Bedarfs sind in Wutöschingen vorhanden und von diesem Standort aus gut erreichbar.</li>
+                    <li><strong>Bodenrichtwertniveau:</strong> Der Bodenrichtwert für Wutöschingen (Kernort) liegt 2025 bei ca. 243 €/m² für erschlossenes Wohnbauland. Dies bestätigt die Einordnung als gute, solide Wohnlage. Im Vergleich zu den Ortsteilen (z.B. Schwerzen 254 €/m², Ofteringen 238 €/m²) liegt der Kernort im gesunden Mittelfeld, was für eine stetige Nachfrage spricht.</li>
+                </ul>
+                <p>Zusammenfassend ist die Mikrolage als <strong>gut</strong> einzustufen. Sie bietet die ideale Kombination aus Ruhe, Familienfreundlichkeit und strategischer Nähe zu Arbeitsplätzen und Verkehrsachsen.</p>
+            </section>
+
+            <!-- 4. Objektdaten -->
+            <section id="object">
+                <h2>4. Objektdaten und bautechnische Analyse</h2>
+                <p>Die Bewertung einer Immobilie steht und fällt mit der präzisen Erfassung ihrer physischen Attribute. Die vorliegenden Daten zeichnen das Bild eines sehr hochwertig errichteten und gepflegten Anwesens.</p>
+
+                <h3>4.1 Grundstücksbeschaffenheit</h3>
+                <p>Das Grundstück umfasst eine Fläche von <strong>756 m²</strong>. Dies ist für heutige Neubauverhältnisse, wo Grundstücke oft auf 400–500 m² parzelliert werden, eine überdurchschnittliche Größe, die einen erheblichen Mehrwert darstellt (Stichwort: Privatsphäre, Gartenanteil).</p>
+                <ul>
+                    <li><strong>Topographie:</strong> Das Grundstück wurde mit Erde ausgeglichen und ist somit eben ("kein fallendes Gelände"). Dies reduziert die Kosten für Gartenpflege und Nutzung erheblich im Vergleich zu Hanggrundstücken und erhöht den Nutzwert der Gartenfläche.</li>
+                    <li><strong>Baugrund:</strong> "Gewachsener Boden, gemischkörnig, Kies mit Lehm". Dies ist geologisch für das Wutachtal typisch (Flussschotter/Sedimente). Kieshaltige Böden bieten in der Regel eine gute Tragfähigkeit und Versickerungsfähigkeit, was positive Auswirkungen auf die Bauwerksabdichtung hat (geringere Gefahr von drückendem Wasser).</li>
+                    <li><strong>Außenanlagen:</strong> Die Beschreibung der Außenanlagen deutet auf hohe Investitionen hin.
+                        <ul class="mt-2">
+                            <li>Vollständige Pflasterung vor Haus und Garage sowie auf der Terrasse.</li>
+                            <li>Überdachter Außenbereich (Holz-Carport mit Wänden) als "Gartenzimmer".</li>
+                            <li>Umfriedung durch eine 2-3 m hohe Hecke: Dies schafft einen nicht einsehbaren Rückzugsort, ein Merkmal, das bei Käufern hoch im Kurs steht.</li>
+                            <li>5 Stellplätze (2 Garage, 3 Hof): Ein massiver Pluspunkt im ländlichen Raum, wo Haushalte oft über mehrere PKW verfügen.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>4.2 Baukörper und Konstruktion</h3>
+                <p>Das Gebäude wurde 2002 errichtet, ein Jahrgang, der bereits modernen Wärmeschutzverordnungen (WSVO 95 / EnEV 2002) unterlag. Die Bauweise ist massiv und hochwertig.</p>
+                <ul>
+                    <li><strong>Wände:</strong> HLZ-Mauerwerk (Hochlochziegel). Ziegel sind ein bewährter Baustoff mit hervorragenden Eigenschaften bezüglich Wärmedämmung, Wärmespeicherung und Feuchteregulierung. Die Angabe HLZ sowohl für Außen- als auch Innenwände spricht für eine monolithische, solide Bauweise ohne billige Trockenbauwände.</li>
+                    <li><strong>Dach:</strong> Satteldach mit Ziegeleindeckung auf Holzkonstruktion. Das Satteldach ist die langlebigste und wartungsärmste Dachform in dieser Region.</li>
+                    <li><strong>Volumen (Umbauter Raum / BRI):</strong> Die vom Eigentümer gelieferten Daten zum umbauten Raum bedürfen einer fachlichen Einordnung.
+                        <ul class="mt-2">
+                            <li>Keller: 247,536 m³</li>
+                            <li>Erdgeschoss: 247,860 m³</li>
+                            <li>Dachgeschoss: 203,775 m³</li>
+                            <li>Speicher: 49,400 m³</li>
+                            <li><strong>Summe Wohnhaus: 748,571 m³</strong></li>
+                            <li>Garage: 158,400 m³</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="plausibility-box shadow-md">
+                    <p class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        Hinweis zur Plausibilität
+                    </p>
+                    <p>In der Anfrage wurde der "umbaute Raum Wohnhaus gesamt" mit 501,035 m³ angegeben. Dies entspricht in etwa der Summe aus EG, DG und Speicher (247,8 + 203,7 + 49,4 = 500,9). Es scheint, als sei der Keller in der Summenbildung des Eigentümers nicht berücksichtigt worden. Für die Sachwertermittlung ist jedoch zwingend das <strong>Gesamtvolumen inklusive Keller</strong> heranzuziehen, da auch der Keller erhebliche Baukosten verursacht. Ein Haus mit 140 m² Wohnfläche und Vollunterkellerung hat physikalisch zwingend ein Volumen von ca. 750–850 m³. Wir legen der Bewertung daher den korrekten Gesamtwert von <strong>748,57 m³</strong> für das Wohnhaus und <strong>158,40 m³</strong> für die Garage zugrunde. Die Garage ist mit über 158 m³ ungewöhnlich groß (vermutlich Doppelgarage mit hohem Dachraum oder Überlänge), was den Wert zusätzlich steigert.</p>
+                </div>
+
+                <h3>4.3 Flächenanalyse</h3>
+                <p>Die Flächenangaben nach II. Berechnungsverordnung (Wohnflächenverordnung) sind transparent aufgeschlüsselt:</p>
+                <ul>
+                    <li><strong>Wohnfläche:</strong> 139,90 m² (EG 71,3 + DG 72,93, abzgl. Putz). Dies ist eine ideale Größe für eine 4-5-köpfige Familie, marktgängig und liquide.</li>
+                    <li><strong>Nutzfläche:</strong> 96,86 m² (Keller 52,3 m² + Garage 44,56 m²).</li>
+                    <li><strong>Funktionsflächen:</strong> Weitere ca. 21 m² (Flur/Heizraum im KG).</li>
+                </ul>
+                <p>Insgesamt bietet das Haus über 250 m² nutzbare Fläche, was den Nutzwert weit über die reine Wohnfläche hinaushebt.</p>
+
+                <h3>4.4 Energetischer Status: Das Alleinstellungsmerkmal (USP)</h3>
+                <p>Das absolute Highlight dieses Objekts ist der energetische Zustand.</p>
+                <ul>
+                    <li><strong>Energieverbrauchskennwert:</strong> 27,6 kWh/(m²*a).</li>
+                    <li><strong>Energieeffizienzklasse:</strong> <strong>A+</strong>.</li>
+                    <li><strong>Technik:</strong> Erdgasheizung, unterstützt durch Photovoltaik (Strom) und Batteriespeicher, Kachelofen.</li>
+                </ul>
+                <p><em>Experten-Analyse:</em> Ein Wert von 27,6 kWh/(m²*a) für ein Bestandsgebäude Baujahr 2002 ist außergewöhnlich. Typische Häuser dieses Baujahrs liegen oft zwischen 80 und 120 kWh/(m²*a) (Klasse C/D). Das Erreichen der Klasse A+ deutet darauf hin, dass:</p>
+                <ol>
+                    <li>Die Gebäudehülle (HLZ-Mauerwerk, Fenster, Dachdämmung) von sehr hoher Qualität ist.</li>
+                    <li>Die Photovoltaikanlage und der Batteriespeicher den Primärenergiebedarf rechnerisch massiv senken.</li>
+                    <li>Der Kachelofen und die Klimaanlage (Wärmepumpe Luft-Luft?) aktiv zur Entlastung der Gasheizung beitragen.</li>
+                </ol>
+                <p>Im aktuellen Marktumfeld (Diskussion um Heizungsgesetz/GEG) ist eine Immobilie der Klasse A+ ein "Safe Haven". Käufer sind bereit, signifikante Aufschläge zu zahlen, um dem Risiko zukünftiger Zwangssanierungen zu entgehen.</p>
+            </section>
+
+            <!-- 5. Bodenwert -->
+            <section id="land">
+                <h2>5. Bodenwertermittlung</h2>
+                <p>Der Bodenwert repräsentiert den Wert des "nackten" Grundstücks. Er bildet die Basis der Sachwertermittlung.</p>
+
+                <h3>5.1 Ermittlung des maßgeblichen Bodenrichtwerts</h3>
+                <p>Gemäß den Recherchen zur Bodenrichtwertkarte Wutöschingen 2025 ergeben sich folgende Eckdaten für erschlossenes Wohnbauland:</p>
+                <ul>
+                    <li>Wutöschingen (Allgemein): 225,07 €/m² bis 243,34 €/m².</li>
+                    <li>Schwerzen: 254,14 €/m².</li>
+                    <li>Ofteringen: 238,63 €/m².</li>
+                </ul>
+                <p>Die Lage "Unter den Baumgärten" ist eine gute, etablierte Wohnlage. Wir orientieren uns am oberen Mittelwert für den Kernort Wutöschingen, um die Qualität des gewachsenen Gebiets abzubilden. Ein Ansatz von <strong>240,00 €/m²</strong> erscheint marktgerecht und plausibel.</p>
+
+                <h3>5.2 Berechnung des Bodenwerts</h3>
+                <p>Die Grundstücksgröße beträgt 756 m². Da es sich um ein einzelnes Flurstück für ein Einfamilienhaus handelt, wird in der Regel der volle Bodenrichtwert für die gesamte Fläche angesetzt, solange die Größe nicht extrem von der ortsüblichen Größe (z.B. > 1.000 m²) abweicht und Hinterland entsteht. 756 m² sind zwar großzügig, aber noch als "Vollbauland" zu werten, insbesondere da der Garten hochwertig angelegt ist.</p>
+                
+                <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100 mt-4 text-center">
+                    <p class="text-sm uppercase text-emerald-800 font-bold mb-2">Berechnung Bodenwert</p>
+                    <p class="text-2xl font-mono text-emerald-900">756 m² × 240,00 €/m² = <strong>181.440 €</strong></p>
+                </div>
+            </section>
+
+            <!-- 6. Sachwert -->
+            <section id="building">
+                <h2>6. Sachwertermittlung (Substanzwert)</h2>
+                <p>Das Sachwertverfahren ermittelt die Kosten, die theoretisch anfallen würden, um das Gebäude heute neu zu errichten (Reproduktionskosten), abzüglich der Abnutzung.</p>
+
+                <h3>6.1 Normalherstellungskosten (NHK 2010)</h3>
+                <p>Wir verwenden das Modell der NHK 2010 gemäß ImmoWertV. Die Kostenkennwerte basieren auf der Gebäudeart und dem Ausstattungsstandard.</p>
+                <p><strong>Gebäudeart 1.01 (Freistehendes Einfamilienhaus):</strong></p>
+                <ul>
+                    <li><strong>Standardstufe:</strong> Aufgrund der vorliegenden Merkmale (HLZ-Mauerwerk, Kachelofen, 2 Bäder vermutet bei der Größe, Klimaanlage, hochwertige Bodenbeläge wie Parkett/Fliesen laut Baubeschreibung Pflastersteine, A+ Energieeffizienz) ist das Gebäude der <strong>Standardstufe 4 (gehoben)</strong> zuzuordnen.</li>
+                    <li><strong>Basiswert NHK 2010:</strong> Für Standardstufe 4 liegt der Kostenkennwert bei ca. <strong>1.050 €/m² Brutto-Grundfläche (BGF)</strong> (inkl. Baunebenkosten und MwSt. auf Preisbasis 2010).</li>
+                </ul>
+
+                <p><strong>Umrechnung Volumen in BGF:</strong><br>
+                Da die NHK 2010 auf der BGF basieren, müssen wir die Kubatur (BRI) in Fläche umrechnen. Ein gängiger Umrechnungsfaktor für voll unterkellerte Einfamilienhäuser mit ausgebautem Dachgeschoss liegt bei ca. 2,80 bis 3,00 m Brutto-Geschosshöhe.</p>
+                <ul>
+                    <li>BRI Wohnhaus: 748,57 m³</li>
+                    <li>Geschätzte BGF: 748,57 m³ / 2,90 m ≈ 258 m².</li>
+                </ul>
+
+                <p><strong>Berechnung Basiswert 2010:</strong></p>
+                <ul>
+                    <li>Wohnhaus: 258 m² × 1.050 €/m² = 270.900 €</li>
+                    <li>Garage: Für Großgaragen (158 m³) wird oft ein pauschaler Wert pro Kubikmeter angesetzt oder der entsprechende NHK-Wert. Bei gehobener Ausführung (Satteldach, Ziegel, passend zum Haus) ca. 80 €/m³ (Basis 2010).<br>
+                    158,40 m³ × 80 €/m³ = 12.672 €</li>
+                </ul>
+                <p><strong>Summe Herstellungskosten (Basis 2010): 283.572 €</strong></p>
+
+                <h3>6.2 Baupreisindexierung auf 2025</h3>
+                <p>Die Baukosten sind seit 2010 massiv gestiegen. Zur Anpassung auf den Stichtag Ende 2025 wird der Baupreisindex des Statistischen Bundesamtes herangezogen.</p>
+                <ul>
+                    <li>Basis 2010 = 100 Punkte.</li>
+                    <li>Baupreisindex Ende 2025 (Prognose/Trend): Laut den Recherche-Snippets liegt der Index für Wohngebäude im Jahr 2025 bei ca. <strong>188,6 bis 195,0</strong> Punkten.</li>
+                    <li>Wir wählen einen konservativen Mittelwert von <strong>190,0</strong> (Faktor 1,90).</li>
+                </ul>
+                <div class="bg-slate-50 p-4 rounded border border-slate-200 mt-2">
+                    <p class="font-bold text-slate-800">Berechnung Herstellungskosten 2025:</p>
+                    <p class="font-mono text-slate-600">NHK 2025 = 283.572 € × 1,90 = <strong>538.787 €</strong></p>
+                </div>
+
+                <h3>6.3 Alterswertminderung (lineare Abschreibung)</h3>
+                <p>Das Gebäude ist im Jahr 2025 rechnerisch 23 Jahre alt (Baujahr 2002).</p>
+                <ul>
+                    <li>Gesamtnutzungsdauer (GND): 80 Jahre (Standard für Massivhäuser).</li>
+                    <li>Theoretische Restnutzungsdauer (RND): 57 Jahre.</li>
+                </ul>
+                <p><strong>Modifikation der Restnutzungsdauer:</strong><br>
+                Ein Gebäude, das energetisch auf dem Stand eines Neubaus (A+) ist und über PV-Anlage, Klimaanlage und moderne Heiztechnik verfügt, ist "verjüngt". Es besteht kein Sanierungsstau. In der Wertermittlungspraxis wird in solchen Fällen die Restnutzungsdauer verlängert (fiktives Baujahr). Wir setzen eine fiktive RND von <strong>65 Jahren</strong> an (entspricht einem fiktiven Baujahr von ca. 2010).</p>
+                <ul>
+                    <li>Modifiziertes Alter: 15 Jahre.</li>
+                    <li>Abschreibung: 15 / 80 = 18,75 %.</li>
+                </ul>
+                <div class="bg-slate-50 p-4 rounded border border-slate-200 mt-2">
+                    <p class="font-bold text-slate-800">Berechnung Zeitwert der Gebäude:</p>
+                    <p class="font-mono text-slate-600">Zeitwert = 538.787 € - 18,75% = <strong>437.764 €</strong></p>
+                </div>
+
+                <h3>6.4 Außenanlagen</h3>
+                <p>Die Außenanlagen sind weit überdurchschnittlich (Pflasterung, Carport, 5 Stellplätze, Hütte, eingewachsene Hecke).</p>
+                <ul>
+                    <li>Üblicher Ansatz: 3-5% der Herstellungskosten.</li>
+                    <li>Hier gerechtfertigt: ca. 6% oder Pauschalwert.</li>
+                    <li>Zeitwertansatz: <strong>25.000 €</strong>.</li>
+                </ul>
+
+                <h3>6.5 Besondere objektspezifische Grundstücksmerkmale (boG)</h3>
+                <p>Hier werden wertrelevante Sonderausstattungen erfasst, die nicht im Standard-NHK enthalten sind.</p>
+                <ol>
+                    <li><strong>Photovoltaikanlage mit Batteriespeicher:</strong>
+                        <ul>
+                            <li>Neupreis einer vergleichbaren Anlage (ca. 8-10 kWp + Speicher) in 2025: ca. 22.000 €.</li>
+                            <li>Zeitwert (unter Berücksichtigung der noch hohen Effizienz und Restlaufzeit): <strong>15.000 €</strong>.</li>
+                            <li><em>Hinweis:</em> Der wirtschaftliche Wert (Stromersparnis) fließt zusätzlich über die Marktgängigkeit ein.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Klimaanlage & Kachelofen:</strong>
+                        <ul>
+                            <li>Diese Elemente erhöhen den Wohnkomfort signifikant.</li>
+                            <li>Zeitwertansatz: <strong>5.000 €</strong>.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>6.6 Zusammenfassung vorläufiger Sachwert</h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr><th>Position</th><th style="text-align:right">Wert</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Bodenwert</td><td style="text-align:right">181.440 €</td></tr>
+                        <tr><td>Gebäudezeitwert (Haus + Garage)</td><td style="text-align:right">437.764 €</td></tr>
+                        <tr><td>Außenanlagen</td><td style="text-align:right">25.000 €</td></tr>
+                        <tr><td>Wertkorrektur PV & Extras</td><td style="text-align:right">20.000 €</td></tr>
+                        <tr style="font-weight:bold; background-color:#e2e8f0;"><td>Vorläufiger Sachwert</td><td style="text-align:right; color:#1e293b; font-size:1.1em;">664.204 €</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>6.7 Marktanpassung (Sachwertfaktor)</h3>
+                <p>Der vorläufige Sachwert ist eine technische Rechengröße. Er muss an die tatsächliche Marktlage im Landkreis Waldshut angepasst werden.</p>
+                <ul>
+                    <li>Marktlage 2025: Nach den Zinskorrekturen liegen die Sachwertfaktoren (Marktanpassungsfaktoren) im ländlichen Raum oft unter 1,0 (ca. 0,9 - 1,0).</li>
+                    <li><strong>Aber:</strong> Für Objekte der Energieklasse A+ gilt eine Sonderkonjunktur. Diese Objekte sind rar und erzielen Liebhaberpreise. Ein Abschlag wäre hier fachlich falsch. Das Objekt konkurriert mit Neubauten, die deutlich teurer wären.</li>
+                    <li>Wir setzen daher einen Sachwertfaktor von <strong>1,05</strong> an, was einer leichten Überbewertung der Substanz aufgrund der hohen Nachfrage nach Energieeffizienz entspricht.</li>
+                </ul>
+                <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100 mt-4 text-center">
+                    <p class="text-sm uppercase text-emerald-800 font-bold mb-2">Marktangepasster Sachwert</p>
+                    <p class="text-2xl font-mono text-emerald-900">664.204 € × 1,05 = <strong>697.414 €</strong></p>
+                </div>
+            </section>
+
+            <!-- 7. Vergleichswert -->
+            <section id="market">
+                <h2>7. Vergleichswertverfahren und Plausibilisierung</h2>
+                <p>Um zu prüfen, ob der technisch ermittelte Wert von knapp 700.000 € am Markt durchsetzbar ist, ziehen wir Vergleichsdaten heran.</p>
+
+                <h3>7.1 Analyse der Angebotspreise in Wutöschingen</h3>
+                <p>Die aktuellen Marktdaten zeigen folgendes Preisgefüge für Ende 2025:</p>
+                <ul>
+                    <li><strong>Durchschnittspreis Häuser:</strong> 2.886 €/m² bis 3.100 €/m² Wohnfläche.</li>
+                    <li>Dies sind Durchschnittswerte über <em>alle</em> Bestandsobjekte (oft Baujahr 1970-1990, Energieklasse E/F).</li>
+                </ul>
+                <p><strong>Vergleichsobjekte aus der Recherche:</strong></p>
+                <ol>
+                    <li><strong>Horheim (Teilort):</strong> Älteres Haus, 200 m², 449.000 € (ca. 2.245 €/m²). → <em>Deutlich schlechterer Standard.</em></li>
+                    <li><strong>Wutöschingen:</strong> EFH 140 m², 585.000 € (ca. 4.178 €/m²). → <em>Sehr gut vergleichbar von der Größe.</em></li>
+                    <li><strong>Modernes Haus:</strong> 225 m², 960.000 € (ca. 4.200 €/m²). → <em>Zeigt das Potenzial im Luxussegment.</em></li>
+                    <li><strong>Doppelhaushälfte:</strong> 675.000 €.</li>
+                </ol>
+
+                <h3>7.2 Der "A+" Faktor</h3>
+                <p>Studien belegen, dass Immobilien der Energieklasse A+ einen Preisaufschlag von bis zu <strong>25 %</strong> gegenüber der Standardklasse D erzielen.</p>
+                <ul>
+                    <li>Angenommener Basispreis für ein BJ 2002 Haus (Klasse C/D) in Wutöschingen: ca. 3.500 €/m².</li>
+                    <li>Aufschlag für A+ (20\%): 3.500 € * 1,20 = <strong>4.200 €/m²</strong>.</li>
+                </ul>
+                <p><strong>Berechnung Vergleichswert über m²-Preis:</strong><br>
+                139,90 m² × 4.200 €/m² = <strong>587.580 €</strong></p>
+                <p>Zu diesem Wert muss jedoch der Wert des überdurchschnittlich großen Grundstücks addiert werden. Der m²-Preis bezieht sich meist auf Standardgrundstücke (ca. 400-500 m²).</p>
+                <ul>
+                    <li>Mehrfläche: 756 m² - 500 m² = 256 m².</li>
+                    <li>Wert der Mehrfläche (mit Abschlag 50% für Gartenland): 256 m² * 120 € = ca. 30.700 €.</li>
+                    <li>Wert der PV-Anlage/Speicher (da im m²-Vergleich oft nicht enthalten): 15.000 €.</li>
+                </ul>
+                <div class="bg-slate-50 p-4 rounded border border-slate-200 mt-2">
+                    <p class="font-bold text-slate-800">Korrigierter Vergleichswert:</p>
+                    <p class="font-mono text-slate-600">587.580 € + 30.700 € + 15.000 € = <strong>633.280 €</strong></p>
+                </div>
+            </section>
+
+            <!-- 8. Energie -->
+            <section id="energy">
+                <h2>8. Bewertung der Energieeffizienz und Photovoltaik</h2>
+                <p>Dieses Kapitel ist entscheidend für die Argumentation des Verkaufspreises.</p>
+
+                <h3>8.1 Ökonomie der PV-Anlage mit Speicher</h3>
+                <p>Die Kombination aus PV und Speicher (Batterie) ermöglicht dem Eigentümer eine hohe Autarkiequote (oft 60-75%).</p>
+                <ul>
+                    <li>Bei einem angenommenen Stromverbrauch von 4.000 kWh/Jahr und einem Strompreis von 0,40 €/kWh spart der Haushalt (bei 70% Autarkie) ca. 1.120 € pro Jahr an Stromkosten.</li>
+                    <li>Zudem entlastet die PV-Anlage über Heizstab oder Wärmepumpe (Klimaanlage) die Gasheizung.</li>
+                    <li><strong>Kapitalisierter Wert:</strong> Ein Käufer müsste ca. 25.000 € investieren, um dieses System nachzurüsten. Dass es bereits vorhanden, installiert und laufend ist, stellt einen sofortigen Liquiditätsvorteil dar.</li>
+                </ul>
+
+                <h3>8.2 Die Bedeutung der Klasse A+ (27,6 kWh/(m²*a))</h3>
+                <p>Ein Verbrauch von unter 30 kWh ist Passivhaus-Niveau. Dies schützt den Eigentümer vor:</p>
+                <ol>
+                    <li><strong>CO2-Bepreisung:</strong> Steigende Gaspreise treffen dieses Haus kaum.</li>
+                    <li><strong>Sanierungszwang:</strong> Die EU-Gebäuderichtlinie (EPBD) fordert Sanierungen für schlechte Klassen (G/H). Dieses Haus ist "zukunftssicher" bis weit nach 2050.</li>
+                    <li><strong>Wiederverkaufswert:</strong> Banken gewähren für solche Objekte teils Zinsrabatte ("Grüne Hypotheken"), was den Käuferkreis erweitert.</li>
+                </ol>
+            </section>
+
+            <!-- 9. Ergebnis -->
+            <section id="conclusion">
+                <h2>9. Zusammenführung und Verkehrswertprognose</h2>
+
+                <h3>9.1 Abwägung der Ergebnisse</h3>
+                <ul>
+                    <li><strong>Sachwert (Substanz): ca. 697.000 €</strong>.
+                    <br>Dieses Ergebnis ist stark getrieben durch die hohen Neubaukosten in 2025 und das große Grundstück. Es zeigt, was das Haus "wert ist", wenn man es Stein für Stein neu bauen müsste.</li>
+                    <li><strong>Vergleichswert (Markt): ca. 633.000 €</strong>.
+                    <br>Dieses Ergebnis zeigt, was Käufer im Vergleich zu anderen Angeboten zahlen.</li>
+                </ul>
+                <p><strong>Analyse der Diskrepanz:</strong> Der Sachwert liegt über dem Vergleichswert. Dies ist im ländlichen Raum nicht unüblich, da die Baukosten überall gleich hoch sind, die Bodenpreise aber niedriger als in Metropolen. Oft können die Herstellungskosten beim Verkauf nicht voll realisiert werden.
+                <br><strong>ABER:</strong> Aufgrund der <strong>Energieeffizienz A+</strong> und der <strong>Top-Ausstattung</strong> (Kachelofen, Klima, 5 Stellplätze, riesige Garage) nähert sich der Marktpreis hier dem Sachwert an. Das Objekt ist ein "Einhorn" im Bestand – BJ 2002, aber technische Daten wie BJ 2025.</p>
+
+                <h3>9.2 Empfohlener Verkaufspreis</h3>
+                <p>Unter Würdigung aller Faktoren (Substanz, Lage, Energie, Markttrends) schätze ich den realistischen Verkehrswert auf:</p>
+                
+                <div class="text-center my-12 p-8 bg-slate-900 rounded-lg shadow-2xl text-white">
+                    <span class="block text-5xl font-bold text-emerald-400 mb-2">645.000 €</span>
+                    <span class="block text-slate-400 font-serif italic text-lg">(In Worten: Sechshundertfünfundvierzigtausend Euro)</span>
+                </div>
+
+                <p>Dies entspricht einem Quadratmeterpreis von ca. <strong>4.610 €/m²</strong> (bezogen auf die Wohnfläche), was angesichts des großen Grundstücks und der A+ Ausstattung gerechtfertigt ist.</p>
+
+                <h3>9.3 Strategische Preisempfehlung für den Marktstart</h3>
+                <p>Um Verhandlungsspielraum zu gewähren und die psychologische Preisschwelle zu nutzen, empfehle ich eine Positionierung am Markt mit:</p>
+                
+                <div class="text-center my-8">
+                    <span class="inline-block px-6 py-3 border-2 border-emerald-600 text-emerald-800 font-bold text-2xl rounded-lg bg-emerald-50">
+                        Angebotspreis: 679.000 €
+                    </span>
+                </div>
+
+                <h3>9.4 Argumentationsleitfaden für den Verkauf</h3>
+                <p>Für die Vermarktung sollten folgende Punkte ("USPs") in den Vordergrund gestellt werden, um diesen Preis zu erzielen:</p>
+                <ol>
+                    <li><strong>"Wohnen ohne Reue":</strong> Energieeffizienz A+ bedeutet minimale Nebenkosten und Sicherheit vor Gesetzesänderungen.</li>
+                    <li><strong>"Platzwunder":</strong> Betonen Sie die 5 Stellplätze und die riesige Garage (ideal für Wohnmobil, Oldtimer, Werkstatt).</li>
+                    <li><strong>"Gartenparadies":</strong> 756 m² sind selten. Die Privatsphäre durch die hohe Hecke ist unbezahlbar.</li>
+                    <li><strong>"Schweiz-Nähe":</strong> Ideal für Grenzgänger, die deutsche Lebenshaltungskosten mit Schweizer Gehältern kombinieren wollen.</li>
+                </ol>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
